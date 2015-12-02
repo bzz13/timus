@@ -1,0 +1,12 @@
+4
+4 hungry
+7 satisfied
+5 hungry
+8 satisfied
+
+
+2
+6 hungry
+5 satisfied
+
+Inconsistent

@@ -1,0 +1,11 @@
+codenames
+grille
+keywords
+mnemonic
+playgame
+random
+rectangle
+rejudge
+shaitan
+size
+twosides
