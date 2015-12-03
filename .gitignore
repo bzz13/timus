@@ -25,6 +25,7 @@
 # Executables
 *.exe
 *.stackdump
+*.exe.stackdump
 *.out
 *.app
 
