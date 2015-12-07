@@ -37,10 +37,10 @@ int main()
 	for (int i = S1.size(); i > -1; --i)
 	{
 		if (isPoly(S1, i))
-			{
-				prevpolyb = polyb;
-				polyb = i;
-			}
+		{
+			prevpolyb = polyb;
+			polyb = i;
+		}
 	}
 
 	S2 = reverse(S1, polyb != 0 ?  polyb - 1 : prevpolyb - 1);
