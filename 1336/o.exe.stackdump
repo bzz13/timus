@@ -1,9 +1,0 @@
-Exception: STATUS_STACK_OVERFLOW at eip=00401423
-eax=00351F00 ebx=0028CC9C ecx=00092C60 edx=00000000 esi=61308A9F edi=611CCFB2
-ebp=0028CC78 esp=0028CC54 program=D:\programming\timus\1336\o.exe, pid 21768, thread unknown (0x41FC)
-cs=0023 ds=002B es=002B fs=0053 gs=002B ss=002B
-Stack trace:
-Frame     Function  Args
-0028CC78  00401423 (00000001, 0028CC9C, 80010100, 610083FB)
-0028CD18  6100845A (00000000, 0028CD74, 610074E0, 00000000)
-End of stack trace
