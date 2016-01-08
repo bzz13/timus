@@ -1,9 +1,8 @@
 #include <iostream>
-#include <cstdio>
 #include <string>
 using namespace std;
 
-void decode(string::iterator begin, int size)
+void decode(string::const_iterator begin, const int& size)
 {
 	if (size < 3)
 	{
@@ -20,13 +19,8 @@ void decode(string::iterator begin, int size)
 
 int main()
 {
-#ifndef ONLINE_JUDGE
-	freopen("input.txt", "rt", stdin);
-	// freopen("output.txt", "wt", stdout);
-#endif
 	string phrase;
 	getline(cin, phrase);
-
-	decode(phrase.begin(), phrase.size());
+	decode(phrase.cbegin(), phrase.size());
 	cout << endl;
 }
