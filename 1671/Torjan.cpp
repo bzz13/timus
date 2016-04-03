@@ -82,8 +82,10 @@ void LCA(const int& u, vector<int>& ancestor, vector<bool>& color, vector<vector
 	{
 		int v = links[u][i];
 		LCA(v, ancestor, color, links, dsu, edges);
+		cout << "anc bfr:" << u << " = " << ancestor[dsu.FindSet(u)] << endl;
 		dsu.Union(u, v);
 		ancestor[dsu.FindSet(u)] = u;
+		cout << "anc aft:" << u << " = " << ancestor[dsu.FindSet(u)] << endl;
 		// ancestor[dsu.FindSet(v)] = u;
 	}
 	color[u] = true;
