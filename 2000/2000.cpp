@@ -1,69 +1,50 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-unsigned long long int sum(int array[], int begin, int end)
+long sum(vector<int>& v, int begin, int end)
 {
-	unsigned long long int result = 0;
-	for (int i = begin; i < end; ++i)
-		result += array[i];
-	return result;
-}
-
-unsigned long long int max(const unsigned long long int& a, const unsigned long long int& b)
-{
-	return a > b ? a : b;
-}
-unsigned long long int min(const unsigned long long int& a, const unsigned long long int& b)
-{
-	return a < b ? a : b;
+    long s = 0;
+    for (int i = begin; i < end; ++i)
+        s += v[i];
+    return s;
 }
 
 int main()
 {
-	int count, startA, startB, m;
-	unsigned long long int answerA = 0, answerB = 0;
-	cin >> count;
-	int *array = new int[count];
-	for (int i = 0; i < count; ++i)
-		cin >> array[i];
-	cin >> startA >> startB;
-	if (startA < startB)
-	{
-		m = (startA + startB) / 2;
-		answerA = sum(array, 0, m);
-		answerB = sum(array, m, count);
-	}
-	else
-	{
-		if (startA > startB)
-		{
-			m = (startA + startB) / 2;
-			if ((startA + startB) % 2 == 0)
-				m--;
-			
-			answerA = sum(array, m, count);
-			answerB = sum(array, 0, m);
-		} 
-		else //if (startA == startB)
-		{
-			if (startA == 1 || startA == count)
-			{
-				answerA = sum(array, 0, count);
-				answerB = 0;
-			}
-			else
-			{
-				unsigned long long int 
-					lv = sum(array, 0, startA + 1), 
-					rv = sum(array, startA - 1, count);
+    int count, startA, startB;
+    long total = 0;
+    cin >> count;
+    vector<int> v(count, 0);
+    for (int i = 0; i < count; ++i)
+    {
+        cin >> v[i];
+        total += v[i];
+    }
+    cin >> startA >> startB;
+    startA --;
+    startB --;
 
-				answerA = max(lv, rv);
-				answerB = sum(array, 0, count) - answerA;
-			}
 
-		}
-	}
-	cout << answerA << ' ' << answerB;
+    if (startA == startB)
+    {
+        long sa = sum(v, 0, startA);
+        long max = sa > (total - sa) ? sa : (total - sa);
+        cout << max << " " << (total - max);
+    }
+    else
+    {
 
-	delete[] array;
+        if (startB - startA == 1 || startA - startB == 1)
+        {
+            long sa = startA < startB ? sum(v, 0, startA + 1) : sum(v, startA, count);
+            cout << sa << " " << total - sa;
+        }
+        else
+        {
+            int m = (startA + startB) / 2;
+            long sa = startA < startB ? sum(v, 0, m + 1) : sum(v, m, count);
+            cout << sa << " " << total - sa;
+        }
+    }
 }
